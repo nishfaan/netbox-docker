@@ -1,7 +1,7 @@
 services:
   netbox:
     ports:
-      - "9000:8080"
+      - "9001:8080"
     environment:
       SKIP_SUPERUSER: "false"
     volumes:
@@ -9,3 +9,24 @@ services:
       - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
       - /home/docker/Netbox/reports:/opt/netbox/netbox/reports:rw
       - /home/docker/Netbox/scripts:/opt/netbox/netbox/scripts:rw
+  netbox-worker:
+    volumes:
+      - /home/docker/Netbox/config:/etc/netbox/config:ro
+      - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
+      - /home/docker/Netbox/reports:/opt/netbox/netbox/reports:rw
+      - /home/docker/Netbox/scripts:/opt/netbox/netbox/scripts:rw
+  netbox-housekeeping:
+    volumes:
+      - /home/docker/Netbox/config:/etc/netbox/config:ro
+      - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
+      - /home/docker/Netbox/reports:/opt/netbox/netbox/reports:rw
+      - /home/docker/Netbox/scripts:/opt/netbox/netbox/scripts:rw
+  postgres:
+    volumes:
+      - /home/docker/Netbox/postgres:/var/lib/postgresql/data
+  redis:
+    volumes:
+      - /home/docker/Netbox/redis:/data
+  redis-cache:
+    volumes:
+      - /home/docker/Netbox/redis-cache:/data
