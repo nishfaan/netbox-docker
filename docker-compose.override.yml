@@ -2,8 +2,6 @@ services:
   netbox:
     ports:
       - "9001:8080"
-    environment:
-      SKIP_SUPERUSER: "false"
     volumes:
       - /home/docker/Netbox/config:/etc/netbox/config:ro
       - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
