@@ -1,7 +1,22 @@
 services:
   netbox:
     ports:
-      - "9001:8080"
+      - "9000:8080"
+    volumes:
+      - /home/docker/Netbox/config:/etc/netbox/config:ro
+      - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
+      - /home/docker/Netbox/reports:/opt/netbox/netbox/reports:rw
+      - /home/docker/Netbox/scripts:/opt/netbox/netbox/scripts:rw
+    healthcheck:
+      start_period: 90s
+      retries: 15
+  netbox-worker:
+    volumes:
+      - /home/docker/Netbox/config:/etc/netbox/config:ro
+      - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
+      - /home/docker/Netbox/reports:/opt/netbox/netbox/reports:rw
+      - /home/docker/Netbox/scripts:/opt/netbox/netbox/scripts:rw
+  netbox-housekeeping:
     volumes:
       - /home/docker/Netbox/config:/etc/netbox/config:ro
       - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
