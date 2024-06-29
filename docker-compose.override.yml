@@ -21,4 +21,3 @@ services:
       - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
       - /home/docker/Netbox/reports:/opt/netbox/netbox/reports:rw
       - /home/docker/Netbox/scripts:/opt/netbox/netbox/scripts:rw
-  postgres:
