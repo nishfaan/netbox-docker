@@ -4,8 +4,8 @@ services:
       - "9001:8080"
     volumes:
       - /home/docker/Netbox/config:/etc/netbox/config:ro
-      - /home/docker/Netbox/media:/opt/netbox/netbox/media:rw
-      - /home/docker/Netbox/reports:/opt/netbox/netbox/reports:rw
-      - /home/docker/Netbox/scripts:/opt/netbox/netbox/scripts:rw
+      - /home/docker/Netbox/media:/opt/netbox/netbox-1/media:rw
+      - /home/docker/Netbox/reports:/opt/netbox/netbox-1/reports:rw
+      - /home/docker/Netbox/scripts:/opt/netbox/netbox-1/scripts:rw
     healthcheck:
       retries: 15
